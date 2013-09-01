@@ -1,4 +1,4 @@
-====Four In A Row Tic Tac Toe
+#Four In A Row Tic Tac Toe
 
 Just a small app to learn angularfire (http://angularfire.com)
 
