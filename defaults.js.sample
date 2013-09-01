@@ -1,0 +1,4 @@
+(function() {
+  this.app.constant("FIREBASE_URL", "https://YOUR_FIREBASE_NAME_HERE.firebaseio.com");
+
+}).call(this);

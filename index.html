@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="4InARow">
+<head>
+    <title>4 In A Row Tic-Tac-Toe</title>
+    <script src="http://codeorigin.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.min.js"></script>
+    <script src="http://cdn.firebase.com/v0/firebase.js"></script>
+    <script src="http://cdn.firebase.com/libs/angularfire/0.3.0/angularfire.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/defaults.js"></script>
+    <script src="js/controllers/app_controller.js"></script>
+
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
+</head>
+<body ng-controller="AppController">
+<p>
+    I am <select ng-model="myColor"><option value="white"></option><option>red</option><option>blue</option></select>
+</p>
+<p>
+    It's <font color="{{game.turn}}">{{game.turn}}'s</font> turn to move
+</p>
+    <table>
+        <tr ng-repeat="row in game.matrix">
+            <td ng-repeat="cell in row" ng-style="{'background-color': cell.color}" ng-click="makeMove(myColor,$parent.$index,$index)"></td>
+        </tr>
+    </table>
+<p><a href="#" ng-click="clearMatrix()">Clear</a></p>
+</body>
+</html>

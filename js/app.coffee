@@ -1,0 +1,1 @@
+@app = angular.module('4InARow', ['firebase'])
