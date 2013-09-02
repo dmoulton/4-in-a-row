@@ -17,3 +17,7 @@ To get it going:
 5. You should be able to access the server from 2 browsers, each choose a color, and then play 4 in a row tic-tac-toe.
 
 6. The app doesn't have a lot of error checking, so you can cheat. That's not really the point.
+
+
+There is a demo at http://davidmoulton.me/4-in-a-row .  The demo is not multi-user, meaning that anyone who loads the page
+can control the board. I will fix that in the future.
