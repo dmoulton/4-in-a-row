@@ -1,4 +1,3 @@
 defaults.coffee
-defaults.js
 *.map
 *!sync
