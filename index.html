@@ -35,16 +35,17 @@
     </div>
 </div>
 <div class="container" style="margin-top: 75px;" >
+    <div class="alert alert-success" ng-show="hasWinner()">{{game.winner}} is the winner!</div>
     <div class="jumbotron">
         <div class="row">
-            <div class="col-md-2">
+            <div class="col-md-3">
                 I'm <select ng-model="myColor">
                 <option value="white"></option>
                 <option>red</option>
                 <option>blue</option>
             </select>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-5">
                 It's <span ng-style="{'color': game.turn}">{{game.turn}}'s</span> turn to move
             </div>
         </div>

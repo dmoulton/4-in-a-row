@@ -16,5 +16,4 @@ To get it going:
 
 5. You should be able to access the server from 2 browsers, each choose a color, and then play 4 in a row tic-tac-toe.
 
-6. The app doesn't have a lot of error checking, so you can cheat. That wasn't really my goal with this. It also doesn't
-yet tell you when someone wins. I'll probably work on that later.
+6. The app doesn't have a lot of error checking, so you can cheat. That's not really the point.
