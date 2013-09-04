@@ -1,25 +1,30 @@
 @AppController = ($scope, angularFire, FIREBASE_URL) ->
   $scope.game = {}
   $scope.game.winner = ""
-
   freshMatrix = [ [{color: 'white'},{color: 'white'},{color: 'white'},{color: 'white'}],
                   [{color: 'white'},{color: 'white'},{color: 'white'},{color: 'white'}],
                   [{color: 'white'},{color: 'white'},{color: 'white'},{color: 'white'}],
                   [{color: 'white'},{color: 'white'},{color: 'white'},{color: 'white'}] ]
   $scope.game.matrix = angular.copy(freshMatrix)
-  ref = new Firebase(FIREBASE_URL)
-  angularFire ref, $scope, "game"
+  $scope.newGameCode = ""
+  $scope.gameCode = ""
 
-  $scope.game.turn = "red"
-  $scope.myColor   = "white"
+  $scope.newGame = ->
+    if $scope.newGameCode == ""
+      $scope.gameCode = Math.random().toString(36).substring(7);
+    else
+      $scope.gameCode = $scope.newGameCode
+      $scope.newGameCode = ""
+    ref = new Firebase(FIREBASE_URL + $scope.gameCode)
+    angularFire ref, $scope, "game"
+    $scope.game.turn = "red"
+    $scope.myColor   = "white"
 
   $scope.makeMove = (color,row,column) ->
     if !$scope.hasWinner() && myTurn(color) && ($scope.game.matrix[row][column]['color'] == 'white')
       $scope.game.matrix[row][column]['color'] = color
       $scope.game.turn = otherColor(color)
-
-      if winner(color,row,column)
-        $scope.game.winner = color
+      declareWinner(color,row,column)
     else
       alert("Can't do that")
 
@@ -29,6 +34,9 @@
 
   $scope.hasWinner = () ->
     $scope.game.winner != ""
+
+  $scope.inProgress = () ->
+    $scope.gameCode != ""
 
   otherColor = (color) ->
     if color == "red"
@@ -40,6 +48,10 @@
 
   myTurn = (color) ->
     color == $scope.game.turn
+
+  declareWinner = (color,row,column) ->
+    if winner(color,row,column)
+      $scope.game.winner = color
 
   winner = (color,row,col) ->
     return true if checkRows(color,row)
