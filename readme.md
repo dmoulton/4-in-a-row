@@ -19,5 +19,4 @@ To get it going:
 6. The app doesn't have a lot of error checking, so you can cheat. That's not really the point.
 
 
-There is a demo at http://davidmoulton.me/4-in-a-row .  The demo is not multi-user, meaning that anyone who loads the page
-can control the board. I will fix that in the future.
+There is a demo at http://davidmoulton.me/4-in-a-row .
